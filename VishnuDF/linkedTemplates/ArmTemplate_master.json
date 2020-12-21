@@ -1,0 +1,557 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "VishnuDF"
+		},
+		"Anubhav_SqlServerLocal_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Anubhav_SqlServerLocal'"
+		},
+		"Anubhav_SqlServerLocal_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Anubhav_SqlServerLocal'"
+		},
+		"Azure Calabal Database_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Azure Calabal Database'"
+		},
+		"Azure Celebal Old_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Azure Celebal Old'"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureBlobStorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
+		},
+		"AzureBlobStorage3_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage3'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"Cognitus_S4HANA_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Cognitus_S4HANA'"
+		},
+		"HSSSapTableCon_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'HSSSapTableCon'"
+		},
+		"LocalFile_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LocalFile'"
+		},
+		"LocalsqlVishnu_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LocalsqlVishnu'"
+		},
+		"LocalsqlVishnu_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LocalsqlVishnu'"
+		},
+		"OData1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'OData1'"
+		},
+		"RestService1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'RestService1'"
+		},
+		"SAPECC_Local_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SAPECC_Local'"
+		},
+		"SapBw1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SapBw1'"
+		},
+		"SapEcc1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SapEcc1'"
+		},
+		"SapOpenHub_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SapOpenHub'"
+		},
+		"SapTable1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SapTable1'"
+		},
+		"SapTable2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SapTable2'"
+		},
+		"SapTable3_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SapTable3'"
+		},
+		"Anubhav_SqlServerLocal_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "CBLLAP0086\\Admin"
+		},
+		"Cognitus_S4HANA_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "201"
+		},
+		"Cognitus_S4HANA_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Angupta"
+		},
+		"Cognitus_S4HANA_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "hss.cognitusconsulting.com"
+		},
+		"Cognitus_S4HANA_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "00"
+		},
+		"HSSSapTableCon_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "201"
+		},
+		"HSSSapTableCon_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "angupta"
+		},
+		"HSSSapTableCon_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "hss.cognitusconsulting.com"
+		},
+		"HSSSapTableCon_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "00"
+		},
+		"LocalFile_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "D:\\SAP\\SAP Tables Data\\New SAP Tables\\"
+		},
+		"LocalFile_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"LocalsqlVishnu_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"OData1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "http://hss.cognitusconsulting.com:8000/sap/opu/odata/sap/ZGW_SAP_SQL_METADATA_SRV/DETSet?&$filter=Querytab eq 'SCARR'&$format=json"
+		},
+		"OData1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "angupta"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "http://hss.cognitusconsulting.com:8000/sap/opu/odata/sap/ZGW_SAP_SQL_METADATA_SRV/DETSet?&$filter=Querytab eq 'VBAK'&$format=json"
+		},
+		"RestService1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "angupta"
+		},
+		"SAPECC_Local_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "800"
+		},
+		"SAPECC_Local_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "nsn20"
+		},
+		"SAPECC_Local_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "103.69.245.20"
+		},
+		"SAPECC_Local_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "10"
+		},
+		"SapBw1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "hss.cognitusconsulting.com"
+		},
+		"SapBw1_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "00"
+		},
+		"SapBw1_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "201"
+		},
+		"SapBw1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "angupta"
+		},
+		"SapEcc1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "http://hss.cognitusconsulting.com:8000/sap/opu/odata/sap/ZGW_SAP_SQL_METADATA_SRV/DETSet?&$filter=Querytab%20eq%20%27VBAP%27&"
+		},
+		"SapEcc1_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "angupta"
+		},
+		"SapOpenHub_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "201"
+		},
+		"SapOpenHub_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "angupta"
+		},
+		"SapOpenHub_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "hss.cognitusconsulting.com"
+		},
+		"SapOpenHub_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "00"
+		},
+		"SapTable1_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "302"
+		},
+		"SapTable1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "FI_CONS"
+		},
+		"SapTable1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "10.2.18.12"
+		},
+		"SapTable1_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "00"
+		},
+		"SapTable2_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "201"
+		},
+		"SapTable2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Angupta"
+		},
+		"SapTable2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "hss.cognitusconsulting.com"
+		},
+		"SapTable2_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "00"
+		},
+		"SapTable3_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "100"
+		},
+		"SapTable3_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "rlamba"
+		},
+		"SapTable3_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "52.200.210.142"
+		},
+		"SapTable3_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "01"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/ef6d972f-d830-4806-b674-9c03c608c9e6/resourceGroups/VishnutestingRG/providers/Microsoft.Storage/storageAccounts/vishnustorage"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "VishnuDF_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Azure Calabal Database_connectionString": {
+						"value": "[parameters('Azure Calabal Database_connectionString')]"
+					},
+					"Azure Celebal Old_connectionString": {
+						"value": "[parameters('Azure Celebal Old_connectionString')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureBlobStorage2_connectionString": {
+						"value": "[parameters('AzureBlobStorage2_connectionString')]"
+					},
+					"AzureBlobStorage3_connectionString": {
+						"value": "[parameters('AzureBlobStorage3_connectionString')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"OData1_password": {
+						"value": "[parameters('OData1_password')]"
+					},
+					"RestService1_password": {
+						"value": "[parameters('RestService1_password')]"
+					},
+					"SapEcc1_password": {
+						"value": "[parameters('SapEcc1_password')]"
+					},
+					"OData1_properties_typeProperties_url": {
+						"value": "[parameters('OData1_properties_typeProperties_url')]"
+					},
+					"OData1_properties_typeProperties_userName": {
+						"value": "[parameters('OData1_properties_typeProperties_userName')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"RestService1_properties_typeProperties_userName": {
+						"value": "[parameters('RestService1_properties_typeProperties_userName')]"
+					},
+					"SapEcc1_properties_typeProperties_url": {
+						"value": "[parameters('SapEcc1_properties_typeProperties_url')]"
+					},
+					"SapEcc1_properties_typeProperties_username": {
+						"value": "[parameters('SapEcc1_properties_typeProperties_username')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "VishnuDF_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Anubhav_SqlServerLocal_connectionString": {
+						"value": "[parameters('Anubhav_SqlServerLocal_connectionString')]"
+					},
+					"Anubhav_SqlServerLocal_password": {
+						"value": "[parameters('Anubhav_SqlServerLocal_password')]"
+					},
+					"Cognitus_S4HANA_password": {
+						"value": "[parameters('Cognitus_S4HANA_password')]"
+					},
+					"HSSSapTableCon_password": {
+						"value": "[parameters('HSSSapTableCon_password')]"
+					},
+					"LocalFile_password": {
+						"value": "[parameters('LocalFile_password')]"
+					},
+					"LocalsqlVishnu_connectionString": {
+						"value": "[parameters('LocalsqlVishnu_connectionString')]"
+					},
+					"LocalsqlVishnu_password": {
+						"value": "[parameters('LocalsqlVishnu_password')]"
+					},
+					"SAPECC_Local_password": {
+						"value": "[parameters('SAPECC_Local_password')]"
+					},
+					"SapBw1_password": {
+						"value": "[parameters('SapBw1_password')]"
+					},
+					"SapOpenHub_password": {
+						"value": "[parameters('SapOpenHub_password')]"
+					},
+					"SapTable1_password": {
+						"value": "[parameters('SapTable1_password')]"
+					},
+					"SapTable2_password": {
+						"value": "[parameters('SapTable2_password')]"
+					},
+					"SapTable3_password": {
+						"value": "[parameters('SapTable3_password')]"
+					},
+					"Anubhav_SqlServerLocal_properties_typeProperties_userName": {
+						"value": "[parameters('Anubhav_SqlServerLocal_properties_typeProperties_userName')]"
+					},
+					"Cognitus_S4HANA_properties_typeProperties_clientId": {
+						"value": "[parameters('Cognitus_S4HANA_properties_typeProperties_clientId')]"
+					},
+					"Cognitus_S4HANA_properties_typeProperties_userName": {
+						"value": "[parameters('Cognitus_S4HANA_properties_typeProperties_userName')]"
+					},
+					"Cognitus_S4HANA_properties_typeProperties_server": {
+						"value": "[parameters('Cognitus_S4HANA_properties_typeProperties_server')]"
+					},
+					"Cognitus_S4HANA_properties_typeProperties_systemNumber": {
+						"value": "[parameters('Cognitus_S4HANA_properties_typeProperties_systemNumber')]"
+					},
+					"HSSSapTableCon_properties_typeProperties_clientId": {
+						"value": "[parameters('HSSSapTableCon_properties_typeProperties_clientId')]"
+					},
+					"HSSSapTableCon_properties_typeProperties_userName": {
+						"value": "[parameters('HSSSapTableCon_properties_typeProperties_userName')]"
+					},
+					"HSSSapTableCon_properties_typeProperties_server": {
+						"value": "[parameters('HSSSapTableCon_properties_typeProperties_server')]"
+					},
+					"HSSSapTableCon_properties_typeProperties_systemNumber": {
+						"value": "[parameters('HSSSapTableCon_properties_typeProperties_systemNumber')]"
+					},
+					"LocalFile_properties_typeProperties_host": {
+						"value": "[parameters('LocalFile_properties_typeProperties_host')]"
+					},
+					"LocalFile_properties_typeProperties_userId": {
+						"value": "[parameters('LocalFile_properties_typeProperties_userId')]"
+					},
+					"LocalsqlVishnu_properties_typeProperties_userName": {
+						"value": "[parameters('LocalsqlVishnu_properties_typeProperties_userName')]"
+					},
+					"SAPECC_Local_properties_typeProperties_clientId": {
+						"value": "[parameters('SAPECC_Local_properties_typeProperties_clientId')]"
+					},
+					"SAPECC_Local_properties_typeProperties_userName": {
+						"value": "[parameters('SAPECC_Local_properties_typeProperties_userName')]"
+					},
+					"SAPECC_Local_properties_typeProperties_server": {
+						"value": "[parameters('SAPECC_Local_properties_typeProperties_server')]"
+					},
+					"SAPECC_Local_properties_typeProperties_systemNumber": {
+						"value": "[parameters('SAPECC_Local_properties_typeProperties_systemNumber')]"
+					},
+					"SapBw1_properties_typeProperties_server": {
+						"value": "[parameters('SapBw1_properties_typeProperties_server')]"
+					},
+					"SapBw1_properties_typeProperties_systemNumber": {
+						"value": "[parameters('SapBw1_properties_typeProperties_systemNumber')]"
+					},
+					"SapBw1_properties_typeProperties_clientId": {
+						"value": "[parameters('SapBw1_properties_typeProperties_clientId')]"
+					},
+					"SapBw1_properties_typeProperties_userName": {
+						"value": "[parameters('SapBw1_properties_typeProperties_userName')]"
+					},
+					"SapOpenHub_properties_typeProperties_clientId": {
+						"value": "[parameters('SapOpenHub_properties_typeProperties_clientId')]"
+					},
+					"SapOpenHub_properties_typeProperties_userName": {
+						"value": "[parameters('SapOpenHub_properties_typeProperties_userName')]"
+					},
+					"SapOpenHub_properties_typeProperties_server": {
+						"value": "[parameters('SapOpenHub_properties_typeProperties_server')]"
+					},
+					"SapOpenHub_properties_typeProperties_systemNumber": {
+						"value": "[parameters('SapOpenHub_properties_typeProperties_systemNumber')]"
+					},
+					"SapTable1_properties_typeProperties_clientId": {
+						"value": "[parameters('SapTable1_properties_typeProperties_clientId')]"
+					},
+					"SapTable1_properties_typeProperties_userName": {
+						"value": "[parameters('SapTable1_properties_typeProperties_userName')]"
+					},
+					"SapTable1_properties_typeProperties_server": {
+						"value": "[parameters('SapTable1_properties_typeProperties_server')]"
+					},
+					"SapTable1_properties_typeProperties_systemNumber": {
+						"value": "[parameters('SapTable1_properties_typeProperties_systemNumber')]"
+					},
+					"SapTable2_properties_typeProperties_clientId": {
+						"value": "[parameters('SapTable2_properties_typeProperties_clientId')]"
+					},
+					"SapTable2_properties_typeProperties_userName": {
+						"value": "[parameters('SapTable2_properties_typeProperties_userName')]"
+					},
+					"SapTable2_properties_typeProperties_server": {
+						"value": "[parameters('SapTable2_properties_typeProperties_server')]"
+					},
+					"SapTable2_properties_typeProperties_systemNumber": {
+						"value": "[parameters('SapTable2_properties_typeProperties_systemNumber')]"
+					},
+					"SapTable3_properties_typeProperties_clientId": {
+						"value": "[parameters('SapTable3_properties_typeProperties_clientId')]"
+					},
+					"SapTable3_properties_typeProperties_userName": {
+						"value": "[parameters('SapTable3_properties_typeProperties_userName')]"
+					},
+					"SapTable3_properties_typeProperties_server": {
+						"value": "[parameters('SapTable3_properties_typeProperties_server')]"
+					},
+					"SapTable3_properties_typeProperties_systemNumber": {
+						"value": "[parameters('SapTable3_properties_typeProperties_systemNumber')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'VishnuDF_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "VishnuDF_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'VishnuDF_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "VishnuDF_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"trigger1_properties_typeProperties_scope": {
+						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'VishnuDF_ArmTemplate_2')]"
+			]
+		}
+	]
+}

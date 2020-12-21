@@ -1,0 +1,204 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "VishnuDF"
+		},
+		"Anubhav_SqlServerLocal_connectionString": {
+			"value": ""
+		},
+		"Anubhav_SqlServerLocal_password": {
+			"value": ""
+		},
+		"Azure Calabal Database_connectionString": {
+			"value": ""
+		},
+		"Azure Celebal Old_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage3_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"Cognitus_S4HANA_password": {
+			"value": ""
+		},
+		"HSSSapTableCon_password": {
+			"value": ""
+		},
+		"LocalFile_password": {
+			"value": ""
+		},
+		"LocalsqlVishnu_connectionString": {
+			"value": ""
+		},
+		"LocalsqlVishnu_password": {
+			"value": ""
+		},
+		"OData1_password": {
+			"value": ""
+		},
+		"RestService1_password": {
+			"value": ""
+		},
+		"SAPECC_Local_password": {
+			"value": ""
+		},
+		"SapBw1_password": {
+			"value": ""
+		},
+		"SapEcc1_password": {
+			"value": ""
+		},
+		"SapOpenHub_password": {
+			"value": ""
+		},
+		"SapTable1_password": {
+			"value": ""
+		},
+		"SapTable2_password": {
+			"value": ""
+		},
+		"SapTable3_password": {
+			"value": ""
+		},
+		"Anubhav_SqlServerLocal_properties_typeProperties_userName": {
+			"value": "CBLLAP0086\\Admin"
+		},
+		"Cognitus_S4HANA_properties_typeProperties_clientId": {
+			"value": "201"
+		},
+		"Cognitus_S4HANA_properties_typeProperties_userName": {
+			"value": "Angupta"
+		},
+		"Cognitus_S4HANA_properties_typeProperties_server": {
+			"value": "hss.cognitusconsulting.com"
+		},
+		"Cognitus_S4HANA_properties_typeProperties_systemNumber": {
+			"value": "00"
+		},
+		"HSSSapTableCon_properties_typeProperties_clientId": {
+			"value": "201"
+		},
+		"HSSSapTableCon_properties_typeProperties_userName": {
+			"value": "angupta"
+		},
+		"HSSSapTableCon_properties_typeProperties_server": {
+			"value": "hss.cognitusconsulting.com"
+		},
+		"HSSSapTableCon_properties_typeProperties_systemNumber": {
+			"value": "00"
+		},
+		"LocalFile_properties_typeProperties_host": {
+			"value": "D:\\SAP\\SAP Tables Data\\New SAP Tables\\"
+		},
+		"LocalFile_properties_typeProperties_userId": {
+			"value": "admin"
+		},
+		"LocalsqlVishnu_properties_typeProperties_userName": {
+			"value": "admin"
+		},
+		"OData1_properties_typeProperties_url": {
+			"value": "http://hss.cognitusconsulting.com:8000/sap/opu/odata/sap/ZGW_SAP_SQL_METADATA_SRV/DETSet?&$filter=Querytab eq 'SCARR'&$format=json"
+		},
+		"OData1_properties_typeProperties_userName": {
+			"value": "angupta"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "http://hss.cognitusconsulting.com:8000/sap/opu/odata/sap/ZGW_SAP_SQL_METADATA_SRV/DETSet?&$filter=Querytab eq 'VBAK'&$format=json"
+		},
+		"RestService1_properties_typeProperties_userName": {
+			"value": "angupta"
+		},
+		"SAPECC_Local_properties_typeProperties_clientId": {
+			"value": "800"
+		},
+		"SAPECC_Local_properties_typeProperties_userName": {
+			"value": "nsn20"
+		},
+		"SAPECC_Local_properties_typeProperties_server": {
+			"value": "103.69.245.20"
+		},
+		"SAPECC_Local_properties_typeProperties_systemNumber": {
+			"value": "10"
+		},
+		"SapBw1_properties_typeProperties_server": {
+			"value": "hss.cognitusconsulting.com"
+		},
+		"SapBw1_properties_typeProperties_systemNumber": {
+			"value": "00"
+		},
+		"SapBw1_properties_typeProperties_clientId": {
+			"value": "201"
+		},
+		"SapBw1_properties_typeProperties_userName": {
+			"value": "angupta"
+		},
+		"SapEcc1_properties_typeProperties_url": {
+			"value": "http://hss.cognitusconsulting.com:8000/sap/opu/odata/sap/ZGW_SAP_SQL_METADATA_SRV/DETSet?&$filter=Querytab%20eq%20%27VBAP%27&"
+		},
+		"SapEcc1_properties_typeProperties_username": {
+			"value": "angupta"
+		},
+		"SapOpenHub_properties_typeProperties_clientId": {
+			"value": "201"
+		},
+		"SapOpenHub_properties_typeProperties_userName": {
+			"value": "angupta"
+		},
+		"SapOpenHub_properties_typeProperties_server": {
+			"value": "hss.cognitusconsulting.com"
+		},
+		"SapOpenHub_properties_typeProperties_systemNumber": {
+			"value": "00"
+		},
+		"SapTable1_properties_typeProperties_clientId": {
+			"value": "302"
+		},
+		"SapTable1_properties_typeProperties_userName": {
+			"value": "FI_CONS"
+		},
+		"SapTable1_properties_typeProperties_server": {
+			"value": "10.2.18.12"
+		},
+		"SapTable1_properties_typeProperties_systemNumber": {
+			"value": "00"
+		},
+		"SapTable2_properties_typeProperties_clientId": {
+			"value": "201"
+		},
+		"SapTable2_properties_typeProperties_userName": {
+			"value": "Angupta"
+		},
+		"SapTable2_properties_typeProperties_server": {
+			"value": "hss.cognitusconsulting.com"
+		},
+		"SapTable2_properties_typeProperties_systemNumber": {
+			"value": "00"
+		},
+		"SapTable3_properties_typeProperties_clientId": {
+			"value": "100"
+		},
+		"SapTable3_properties_typeProperties_userName": {
+			"value": "rlamba"
+		},
+		"SapTable3_properties_typeProperties_server": {
+			"value": "52.200.210.142"
+		},
+		"SapTable3_properties_typeProperties_systemNumber": {
+			"value": "01"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/ef6d972f-d830-4806-b674-9c03c608c9e6/resourceGroups/VishnutestingRG/providers/Microsoft.Storage/storageAccounts/vishnustorage"
+		}
+	}
+}

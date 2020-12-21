@@ -1,0 +1,758 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "VishnuDF"
+		},
+		"Anubhav_SqlServerLocal_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Anubhav_SqlServerLocal'"
+		},
+		"Anubhav_SqlServerLocal_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Anubhav_SqlServerLocal'"
+		},
+		"Cognitus_S4HANA_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Cognitus_S4HANA'"
+		},
+		"HSSSapTableCon_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'HSSSapTableCon'"
+		},
+		"LocalFile_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LocalFile'"
+		},
+		"LocalsqlVishnu_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LocalsqlVishnu'"
+		},
+		"LocalsqlVishnu_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LocalsqlVishnu'"
+		},
+		"SAPECC_Local_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SAPECC_Local'"
+		},
+		"SapBw1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SapBw1'"
+		},
+		"SapOpenHub_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SapOpenHub'"
+		},
+		"SapTable1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SapTable1'"
+		},
+		"SapTable2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SapTable2'"
+		},
+		"SapTable3_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SapTable3'"
+		},
+		"Anubhav_SqlServerLocal_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "CBLLAP0086\\Admin"
+		},
+		"Cognitus_S4HANA_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "201"
+		},
+		"Cognitus_S4HANA_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Angupta"
+		},
+		"Cognitus_S4HANA_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "hss.cognitusconsulting.com"
+		},
+		"Cognitus_S4HANA_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "00"
+		},
+		"HSSSapTableCon_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "201"
+		},
+		"HSSSapTableCon_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "angupta"
+		},
+		"HSSSapTableCon_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "hss.cognitusconsulting.com"
+		},
+		"HSSSapTableCon_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "00"
+		},
+		"LocalFile_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "D:\\SAP\\SAP Tables Data\\New SAP Tables\\"
+		},
+		"LocalFile_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"LocalsqlVishnu_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"SAPECC_Local_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "800"
+		},
+		"SAPECC_Local_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "nsn20"
+		},
+		"SAPECC_Local_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "103.69.245.20"
+		},
+		"SAPECC_Local_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "10"
+		},
+		"SapBw1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "hss.cognitusconsulting.com"
+		},
+		"SapBw1_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "00"
+		},
+		"SapBw1_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "201"
+		},
+		"SapBw1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "angupta"
+		},
+		"SapOpenHub_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "201"
+		},
+		"SapOpenHub_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "angupta"
+		},
+		"SapOpenHub_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "hss.cognitusconsulting.com"
+		},
+		"SapOpenHub_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "00"
+		},
+		"SapTable1_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "302"
+		},
+		"SapTable1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "FI_CONS"
+		},
+		"SapTable1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "10.2.18.12"
+		},
+		"SapTable1_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "00"
+		},
+		"SapTable2_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "201"
+		},
+		"SapTable2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Angupta"
+		},
+		"SapTable2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "hss.cognitusconsulting.com"
+		},
+		"SapTable2_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "00"
+		},
+		"SapTable3_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "100"
+		},
+		"SapTable3_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "rlamba"
+		},
+		"SapTable3_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "52.200.210.142"
+		},
+		"SapTable3_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "01"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/DestinationDataset_gt0')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage3",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Zipfile.zip",
+						"folderPath": "Data",
+						"container": "sap"
+					},
+					"compression": {
+						"type": "ZipDeflate",
+						"level": "Optimal"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/RestResource1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "RestService1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_gt0')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage3",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "sap"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Anubhav_SqlServerLocal')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": "[parameters('Anubhav_SqlServerLocal_connectionString')]",
+					"userName": "[parameters('Anubhav_SqlServerLocal_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('Anubhav_SqlServerLocal_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "AnubhavIntegrationRunTime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Cognitus_S4HANA')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SapTable",
+				"typeProperties": {
+					"clientId": "[parameters('Cognitus_S4HANA_properties_typeProperties_clientId')]",
+					"language": "EN",
+					"sncMode": false,
+					"userName": "[parameters('Cognitus_S4HANA_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('Cognitus_S4HANA_password')]"
+					},
+					"server": "[parameters('Cognitus_S4HANA_properties_typeProperties_server')]",
+					"systemNumber": "[parameters('Cognitus_S4HANA_properties_typeProperties_systemNumber')]"
+				},
+				"connectVia": {
+					"referenceName": "SlefHostIRVishnu",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/HSSSapTableCon')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SapTable",
+				"typeProperties": {
+					"clientId": "[parameters('HSSSapTableCon_properties_typeProperties_clientId')]",
+					"language": "EN",
+					"sncMode": false,
+					"userName": "[parameters('HSSSapTableCon_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('HSSSapTableCon_password')]"
+					},
+					"server": "[parameters('HSSSapTableCon_properties_typeProperties_server')]",
+					"systemNumber": "[parameters('HSSSapTableCon_properties_typeProperties_systemNumber')]"
+				},
+				"connectVia": {
+					"referenceName": "IntegrationFroSqlVISHNU",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LocalFile')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "FileServer",
+				"typeProperties": {
+					"host": "[parameters('LocalFile_properties_typeProperties_host')]",
+					"userId": "[parameters('LocalFile_properties_typeProperties_userId')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LocalFile_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IntegrationFroSqlVISHNU",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LocalsqlVishnu')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": "[parameters('LocalsqlVishnu_connectionString')]",
+					"userName": "[parameters('LocalsqlVishnu_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LocalsqlVishnu_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IntegrationFroSqlVISHNU",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SAPECC_Local')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SapTable",
+				"typeProperties": {
+					"clientId": "[parameters('SAPECC_Local_properties_typeProperties_clientId')]",
+					"language": "",
+					"sncMode": false,
+					"userName": "[parameters('SAPECC_Local_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SAPECC_Local_password')]"
+					},
+					"server": "[parameters('SAPECC_Local_properties_typeProperties_server')]",
+					"systemNumber": "[parameters('SAPECC_Local_properties_typeProperties_systemNumber')]"
+				},
+				"connectVia": {
+					"referenceName": "IntegrationFroSqlVISHNU",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SapBw1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SapBw",
+				"typeProperties": {
+					"server": "[parameters('SapBw1_properties_typeProperties_server')]",
+					"systemNumber": "[parameters('SapBw1_properties_typeProperties_systemNumber')]",
+					"clientId": "[parameters('SapBw1_properties_typeProperties_clientId')]",
+					"userName": "[parameters('SapBw1_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SapBw1_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IntegrationFroSqlVISHNU",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SapOpenHub')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SapOpenHub",
+				"typeProperties": {
+					"clientId": "[parameters('SapOpenHub_properties_typeProperties_clientId')]",
+					"userName": "[parameters('SapOpenHub_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SapOpenHub_password')]"
+					},
+					"server": "[parameters('SapOpenHub_properties_typeProperties_server')]",
+					"systemNumber": "[parameters('SapOpenHub_properties_typeProperties_systemNumber')]"
+				},
+				"connectVia": {
+					"referenceName": "IntegrationFroSqlVISHNU",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SapTable1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SapTable",
+				"typeProperties": {
+					"clientId": "[parameters('SapTable1_properties_typeProperties_clientId')]",
+					"language": "EN",
+					"sncMode": false,
+					"userName": "[parameters('SapTable1_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SapTable1_password')]"
+					},
+					"server": "[parameters('SapTable1_properties_typeProperties_server')]",
+					"systemNumber": "[parameters('SapTable1_properties_typeProperties_systemNumber')]"
+				},
+				"connectVia": {
+					"referenceName": "SlefHostIRVishnu",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SapTable2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SapTable",
+				"typeProperties": {
+					"clientId": "[parameters('SapTable2_properties_typeProperties_clientId')]",
+					"language": "EN",
+					"sncMode": false,
+					"userName": "[parameters('SapTable2_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SapTable2_password')]"
+					},
+					"server": "[parameters('SapTable2_properties_typeProperties_server')]",
+					"systemNumber": "[parameters('SapTable2_properties_typeProperties_systemNumber')]"
+				},
+				"connectVia": {
+					"referenceName": "SlefHostIRVishnu",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SapTable3')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SapTable",
+				"typeProperties": {
+					"clientId": "[parameters('SapTable3_properties_typeProperties_clientId')]",
+					"language": "",
+					"sncMode": false,
+					"userName": "[parameters('SapTable3_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SapTable3_password')]"
+					},
+					"server": "[parameters('SapTable3_properties_typeProperties_server')]",
+					"systemNumber": "[parameters('SapTable3_properties_typeProperties_systemNumber')]"
+				},
+				"connectVia": {
+					"referenceName": "SlefHostIRVishnu",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_Zip_MultipleFile')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "PL_Zip_MultipleFile",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "BinarySource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*_*.txt",
+									"deleteFilesAfterCompletion": false
+								},
+								"formatSettings": {
+									"type": "BinaryReadSettings"
+								}
+							},
+							"sink": {
+								"type": "BinarySink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "SourceDataset_gt0",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DestinationDataset_gt0",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": [],
+				"lastPublishTime": "2020-12-21T11:32:21Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SourceDataset_gt0')]",
+				"[concat(variables('factoryId'), '/datasets/DestinationDataset_gt0')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline4')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "DelimitedText4",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DelimitedText5",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": [],
+				"lastPublishTime": "2020-10-27T09:03:13Z"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/BKPF')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SapTable1",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"TableName": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "SapTableResource",
+				"schema": [],
+				"typeProperties": {
+					"tableName": {
+						"value": "@dataset().TableName",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SapTable1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/BSEG')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SapTable1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SapTableResource",
+				"schema": [],
+				"typeProperties": {
+					"tableName": "BSEG"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SapTable1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CDHDR')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Cognitus_S4HANA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SapTableResource",
+				"schema": [],
+				"typeProperties": {
+					"tableName": "CDHDR"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Cognitus_S4HANA')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CDPOS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Cognitus_S4HANA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SapTableResource",
+				"schema": [],
+				"typeProperties": {
+					"tableName": "CDPOS"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Cognitus_S4HANA')]"
+			]
+		}
+	]
+}
