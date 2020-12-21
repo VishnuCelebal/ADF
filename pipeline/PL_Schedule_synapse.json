@@ -1,0 +1,37 @@
+{
+	"name": "PL_Schedule_synapse",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://management.azure.com/subscriptions/ef6d972f-d830-4806-b674-9c03c608c9e6/resourceGroups/VishnutestingRG/providers/Microsoft.Sql/servers/vishnutesting/databases/SAP_Testing/resume?api-version=2014-04-01-preview",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": {
+						"Dummy": "Dummy"
+					},
+					"authentication": {
+						"type": "MSI",
+						"resource": "https://management.azure.com/"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-10-27T09:03:12Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

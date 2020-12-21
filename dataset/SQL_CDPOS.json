@@ -1,0 +1,17 @@
+{
+	"name": "SQL_CDPOS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Anubhav_SqlServerLocal",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Dbo",
+			"table": "CDPOS"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

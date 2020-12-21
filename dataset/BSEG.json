@@ -1,0 +1,16 @@
+{
+	"name": "BSEG",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SapTable1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SapTableResource",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "BSEG"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

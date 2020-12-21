@@ -1,0 +1,16 @@
+{
+	"name": "CDHDR",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Cognitus_S4HANA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SapTableResource",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "CDHDR"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

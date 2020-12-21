@@ -1,0 +1,94 @@
+{
+	"name": "PL_Pause_Resume_Scale_UpDowm_DWH",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web_Logicapp_ScaleUpDown",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Web_DWH_Scale_UpDown",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-15.eastus.logic.azure.com:443/workflows/408ef94b006545e6b0f093c4d40022a1/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rZOKW6OzcgmEYWxrpTBsrYzSRrFGixmQMahLTmVsZnY",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": {
+						"location": "East US"
+					}
+				}
+			},
+			{
+				"name": "Web_DWH_Scale_UpDown",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Web_DWH_PauseResume",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://management.azure.com/subscriptions/ef6d972f-d830-4806-b674-9c03c608c9e6/resourceGroups/VishnutestingRG/providers/Microsoft.Sql/servers/vishnusqlserver/databases/VishnuSynapse?api-version=2014-04-01-preview",
+					"method": "PATCH",
+					"body": {
+						"properties": {
+							"requestedServiceObjectiveName": "DW100c"
+						}
+					},
+					"authentication": {
+						"type": "MSI",
+						"resource": "https://management.azure.com/"
+					}
+				}
+			},
+			{
+				"name": "Web_DWH_PauseResume",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://management.azure.com/subscriptions/ef6d972f-d830-4806-b674-9c03c608c9e6/resourceGroups/VishnutestingRG/providers/Microsoft.Sql/servers/vishnusqlserver/databases/VishnuSynapse/pause?api-version=2014-04-01-preview",
+					"method": "POST",
+					"authentication": {
+						"type": "MSI",
+						"resource": "https://management.azure.com/"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-12-17T07:25:24Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

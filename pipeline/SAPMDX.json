@@ -1,0 +1,114 @@
+{
+	"name": "SAPMDX",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SapBwSource",
+						"query": "SELECT {[0MEASURES0000000000000009].[-TOTALNETAMOUNT0000000015]} ON COLUMNS , NON EMPTY CROSSJOIN(CROSSJOIN(CROSSJOIN(CROSSJOIN([2CISOFSLSORD-CREATIONDATE].[LEVEL01].MEMBERS,[2CNO9S2M07QVPA4R49SGKY73X0Z].[LEVEL01].MEMBERS) ,[2CRHXRRK4SFTWJX27KAKEEJJT6A].[LEVEL01].MEMBERS) ,[2CS15SOP7NPDH3WU2BJDTO2HP3N].[LEVEL01].MEMBERS) ,[2CIFICURRENCY].[LEVEL01].MEMBERS)  ON ROWS FROM [$2CISOFSLSORD] "
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "[2CISOFSLSORD-CREATIONDATE].[LEVEL01].[MEMBER_CAPTION]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cdate",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "[2CNO9S2M07QVPA4R49SGKY73X0Z].[LEVEL01].[MEMBER_CAPTION]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "c1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "[2CRHXRRK4SFTWJX27KAKEEJJT6A].[LEVEL01].[MEMBER_CAPTION]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "c2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "[2CS15SOP7NPDH3WU2BJDTO2HP3N].[LEVEL01].[MEMBER_CAPTION]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "c3",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "[2CIFICURRENCY].[LEVEL01].[MEMBER_CAPTION]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "c4",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "[0MEASURES0000000000000009].[-TOTALNETAMOUNT0000000015]",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "c5",
+									"type": "Decimal"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SapBwCube2",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SqlServerTable1",
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "cubedata",
+							"SchemaName": "dbo"
+						}
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-04-02T12:09:16Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,21 @@
+{
+	"name": "HSSSapTableCon",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SapTable",
+		"typeProperties": {
+			"clientId": "201",
+			"language": "EN",
+			"sncMode": false,
+			"userName": "angupta",
+			"server": "hss.cognitusconsulting.com",
+			"systemNumber": "00",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2Y2E4YjIxNy1jNGMzLTQxMDAtYjI2OS01OThkZmY1OTI1YWYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IntegrationFroSqlVISHNU",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

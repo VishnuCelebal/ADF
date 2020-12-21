@@ -1,0 +1,19 @@
+{
+	"name": "SapBw1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SapBw",
+		"typeProperties": {
+			"server": "hss.cognitusconsulting.com",
+			"systemNumber": "00",
+			"clientId": "201",
+			"userName": "angupta",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyNWVjZTZhNy1lZDI2LTQ0YjYtOWEzZS02MWY0ODE4NjkzN2YiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IntegrationFroSqlVISHNU",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

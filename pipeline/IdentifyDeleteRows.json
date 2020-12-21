@@ -1,0 +1,134 @@
+{
+	"name": "IdentifyDeleteRows",
+	"properties": {
+		"activities": [
+			{
+				"name": "getID",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT\n   STUFF((SELECT ',' + ''''+US.VBELN+''''\n          FROM VBAK US\n          FOR XML PATH('')), 1, 1, '') IDS",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SqlServerTable1",
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "VBAK",
+							"SchemaName": "dbo"
+						}
+					}
+				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "getID",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SapTableSource",
+						"rfcTableOptions": {
+							"value": "VBELN IN (@{activity('getID').output.firstRow.IDS})",
+							"type": "Expression"
+						},
+						"customRfcReadTableFunctionModule": "",
+						"rfcTableFields": "VBELN",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "SqlServerSink",
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "HSSTable",
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "VBAK"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SqlServerTable1",
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "VBAKDelete",
+							"SchemaName": "dbo"
+						}
+					}
+				]
+			},
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "delete from vbak where VBELN in (select a.VBELN from vbak a left join \nvbakdelete b on a.VBELN=b.VBELN where b.VBELN is null);\n\nselect 0 id;",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SqlServerTable1",
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "vbak",
+							"SchemaName": "dbo"
+						}
+					}
+				}
+			}
+		],
+		"folder": {
+			"name": "Vishnu Dynamic"
+		},
+		"annotations": [],
+		"lastPublishTime": "2020-03-30T10:34:32Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

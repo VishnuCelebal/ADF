@@ -1,0 +1,19 @@
+{
+	"name": "SapOpenHub",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SapOpenHub",
+		"typeProperties": {
+			"clientId": "201",
+			"userName": "angupta",
+			"server": "hss.cognitusconsulting.com",
+			"systemNumber": "00",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIwODEyNzA0MS1lMjBmLTQ0ZDAtOWNkMi04MDAwY2ZkN2IxZmUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IntegrationFroSqlVISHNU",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

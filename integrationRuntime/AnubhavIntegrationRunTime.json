@@ -1,0 +1,6 @@
+{
+	"name": "AnubhavIntegrationRunTime",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

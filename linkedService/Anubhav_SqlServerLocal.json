@@ -1,0 +1,17 @@
+{
+	"name": "Anubhav_SqlServerLocal",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=CBLLAP0086\\ANU;initial catalog=Saptest",
+			"userName": "CBLLAP0086\\Admin",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0ZTk5MzJjMy1lODcwLTQzZWItYWRiNi1jZGVlYzI4ZDIyNTEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "AnubhavIntegrationRunTime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

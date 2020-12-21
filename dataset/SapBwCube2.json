@@ -1,0 +1,13 @@
+{
+	"name": "SapBwCube2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SapBw1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SapBwCube",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

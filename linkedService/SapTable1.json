@@ -1,0 +1,21 @@
+{
+	"name": "SapTable1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SapTable",
+		"typeProperties": {
+			"clientId": "302",
+			"language": "EN",
+			"sncMode": false,
+			"userName": "FI_CONS",
+			"server": "10.2.18.12",
+			"systemNumber": "00",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJkZDVkMDUzNi1jNDM1LTRhOWUtOWRlOS1lNjliNmM2NjU4MmMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SlefHostIRVishnu",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

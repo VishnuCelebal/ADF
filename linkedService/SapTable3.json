@@ -1,0 +1,21 @@
+{
+	"name": "SapTable3",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SapTable",
+		"typeProperties": {
+			"clientId": "100",
+			"language": "",
+			"sncMode": false,
+			"userName": "rlamba",
+			"server": "52.200.210.142",
+			"systemNumber": "01",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlMjJlNzE1MS03ZmIxLTRhYjctODdiMC1kYTZmNjhiNzBlY2IiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SlefHostIRVishnu",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

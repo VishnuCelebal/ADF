@@ -1,0 +1,17 @@
+{
+	"name": "Sql_Cdhdr",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Anubhav_SqlServerLocal",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Dbo",
+			"table": "CDHDR"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

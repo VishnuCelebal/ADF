@@ -1,0 +1,11 @@
+{
+	"name": "Azure Calabal Database",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": ""
+		}
+	}
+}
