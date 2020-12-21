@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "PL_Zip_MultipleFile",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
